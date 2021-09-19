@@ -72,3 +72,7 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
