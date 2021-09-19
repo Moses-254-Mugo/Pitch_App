@@ -16,7 +16,7 @@ def index():
     message = 'Moses Kinyua Mugo'
     title = 'Home - welcome to the Best Movie Reviews Website Online'
 
-    return render_template('index.html', message = message, title = title)
+    return render_template('index.html')
 
 
 @main.route('/user/<uname>')
