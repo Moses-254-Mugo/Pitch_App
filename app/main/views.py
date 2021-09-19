@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for
 from . import main
 from .forms import ReviewForm
+from flask_login import login_required
 
 # Views
 @main.route('/')
