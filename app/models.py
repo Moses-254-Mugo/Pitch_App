@@ -57,8 +57,18 @@ class Comment(db.Model):
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
-        
+
     @classmethod
     def get_comments(cls,pitch):
         comments = Comment.query.filter_by(pitch_id=pitch).all()
         return comments
+
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer,primary_key = True)
+    pitch_title = db.Column(db.String)
+    pitch_content = db.Column(db.String(1000))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    likes = db.Column(db.Integer)
+    dislikes = db.Column(db.Integer)
