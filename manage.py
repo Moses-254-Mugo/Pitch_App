@@ -6,7 +6,7 @@ from app.models import User,Role
 
 
 
-app = create_app('production')
+app = create_app('development')
 
 migrate = Migrate(app,db)
 manager = Manager(app)
