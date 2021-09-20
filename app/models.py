@@ -18,17 +18,19 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
 
+
+
     @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password)
 
 
     def verify_password(self,password):
-        return check_password_hash(self.pass_secure,password)
+        return check_password_hash(self.password_hash,password)
 
 
     def __repr__(self):
@@ -45,6 +47,7 @@ class Role(db.Model):
     def __repr__(self):
         return f'User {self.name}' 
 
+
 class Comment(db.Model):
     __tablename__ = 'comments'
 
@@ -57,11 +60,14 @@ class Comment(db.Model):
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
-
+    
     @classmethod
     def get_comments(cls,pitch):
         comments = Comment.query.filter_by(pitch_id=pitch).all()
         return comments
+
+    
+
 
 class Pitch(db.Model):
     __tablename__ = 'pitches'
@@ -69,31 +75,23 @@ class Pitch(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     pitch_title = db.Column(db.String)
     pitch_content = db.Column(db.String(1000))
+    category = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
+    likes = db.Column(db.Integer)
+   
 
     def save_pitch(self):
         db.session.add(self)
         db.session.commit()
-
+    @classmethod
     def get_pitches(cls,category):
         pitches = Pitch.query.filter_by(category=category).all()
         return pitches
-
-    @classmethod
+    
     def get_pitch(cls,id):
         pitch = Pitch.query.filter_by(id=id).first()
+        return pitch
 
-    @classmethod
-    def count_pitches(cls,uname):
-
-        user = User.query.filter_by(username=uname).first()
-        pitches = Pitch.query.filter_by(user_id=user.id).all()
-
-
-        pitches_count = 0
-        for pitch in pitches:
-            pitches_count += 1
-
-        return pitches_count
+    def __repr__(self):
+        return f'Pitch{self.pitch_content}'

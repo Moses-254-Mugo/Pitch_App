@@ -2,7 +2,23 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-<div class="container">
-  {{wtf.quick_form(form)}}
-</div>
+  <body>
+    <div class="container">
+      {{wtf.quick_form(form)}}
+    </div>
+   
+  </body>
+  <style>
+    body{
+      background-color:lavender ;
+      padding: 30px;
+    }
+    form{
+      padding: 20px;
+    }
+    input[type=submit],input[type=file ]{
+      padding: 10px;
+    }
+    
+  </style>
 {% endblock %}

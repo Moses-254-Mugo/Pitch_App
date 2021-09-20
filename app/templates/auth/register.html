@@ -2,16 +2,37 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<div class="container">
-<div class="row">
-<div class="col-md-2"> </div>
-<div class="col-md-8">
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+        
+        {{wtf.quick_form(registration_form)}}
+        
+        </div>
+        <div class="col-md-2"></div>
+        </div>
+        </div>
 
-{{wtf.quick_form(registration_form)}}
+        <style>
+            body{
+                background:url(https://mcdn.wallpapersafari.com/medium/66/34/8bElNm.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            form{
+                background-color: lavender;
+                padding: 30px;
+                border-radius: 10px;
+            }
+            .btn{
+                background-color: #54C571;
+                color: #fff;
+                padding: 8px;
+            }
+        </style>
+</body>
 
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
 
 {% endblock%}

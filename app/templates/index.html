@@ -1,22 +1,59 @@
+{% extends 'base.html'%}
+{% block content %}
+  <body>
+    <div class="container">
+      <h1 class="text-center">Welcome To Pitch App</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
 
-<div class="card-deck">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+          <div class="card-deck">
+            <div class="card text-white bg-dark mb-3">
+              
+              <div class="card-body">
+                <h4 class="card-title">MOTIVATIONAL PITCHES</h4>
+                <p class="card-text">Smith then proclaims: “don’t ever let somebody tell you that you can’t do something, not even me.”</p>
+                <a href="{{url_for('main.motivational_pitches')}}" class="btn btn-info btn-center-center">View More..</a>
+                <hr>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-deck">
+          
+            <div class="card ard text-white bg-dark mb-3">
+          
+              <div class="card-body">
+                <h4 class="card-title"> LOVE PITCHES</h4>
+                <p class="card-text">Sometimes I say ‘I am a treasure hunter and awesomizer’. This causes frowning and questioning. Then the conversations take off.</p>
+                <a href="{{url_for('main.love_pitches')}}" class="btn btn-info btn-center -center">View More..</a>
+                <hr>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+        </div>
+        </div>
       </div>
     </div>
-    
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
+  </body>
+<style>
+  body{
+    background: url(https://mcdn.wallpapersafari.com/medium/66/34/8bElNm.jpg);
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .card{
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    height: 250px;
+  }
+</style>
+{% endblock %}

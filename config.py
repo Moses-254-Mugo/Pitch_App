@@ -4,7 +4,7 @@ class Config:
     General configuration parent class
     '''
 
-    SECRET_KEY = os.urandom(32)
+    SECRET_KEY = 'kerugoya'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitches'   
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -24,8 +24,6 @@ class Config:
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
     
-    pass
-
 
 
 class ProdConfig(Config):
@@ -36,7 +34,7 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    pass
+
 
 
 class DevConfig(Config):
