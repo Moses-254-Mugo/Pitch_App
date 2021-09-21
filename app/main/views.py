@@ -17,7 +17,7 @@ def index():
     
     title = 'Welcome to Pitch App'
 
-    love_pitches  = Pitch.get_pitches('love')
+    love_pitches = Pitch.get_pitches('love')
     motivational_pitches = Pitch.get_pitches('motivational')
 
 
@@ -64,7 +64,8 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-@main.route('/pitches/love_pitches',methods = ['GET','POST'])
+@main.route('/love_pitches',methods = ['GET','POST'])
+@login_required
 def love_pitches():
     pitches =  Pitch.get_pitches('love')
     
@@ -74,6 +75,7 @@ def love_pitches():
 
 
 @main.route('/motivational_pitch',methods = ['GET','POST'])
+@login_required
 def motivational_pitches():
     pitches =  Pitch.get_pitches('motivational')
     Review_Form = ReviewForm()

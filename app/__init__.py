@@ -13,13 +13,7 @@ bootstrap = Bootstrap()
 mail = Mail()
 simple = SimpleMDE()
 db = SQLAlchemy()
-
-
 photos = UploadSet('photos',IMAGES)
-
-
-
-
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'

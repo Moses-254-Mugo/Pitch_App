@@ -6,7 +6,6 @@ class Config:
 
     SECRET_KEY = 'kerugoya'
     SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://moringa:Access@localhost/pitches' 
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_MS")  
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -34,7 +33,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_MS")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 
